@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Web Library</string>
+    <string name="there_is_no_base_url">需要先设置基础url</string>
+</resources>
