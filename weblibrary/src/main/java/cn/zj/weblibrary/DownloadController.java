@@ -157,7 +157,7 @@ public class DownloadController {
                     if (!scheduledExecutorService.isShutdown()) {
                         scheduledExecutorService.shutdownNow();
                     }
-                    msg.what = DownloadManager.STATUS_FAILED;
+                    msg.what = DownloadManager.STATUS_SUCCESSFUL;
                     handler.sendMessage(msg);
                     scheduledExecutorService = null;
                     break;

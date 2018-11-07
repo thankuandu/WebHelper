@@ -39,11 +39,11 @@ public class RetrofitProvider {
                     builder.readTimeout(20, TimeUnit.SECONDS);
                     builder.writeTimeout(20, TimeUnit.SECONDS);
 
-                    if (BuildConfig.DEBUG) {
-                        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-                        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-                        builder.addInterceptor(loggingInterceptor);
-                    }
+
+                    HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+                    loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+                    builder.addInterceptor(loggingInterceptor);
+
 
                     retrofit = new Retrofit.Builder()
                             .baseUrl(baseUrl)
