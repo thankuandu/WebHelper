@@ -17,18 +17,17 @@ Step 2. Add the dependency
 
 
 
-
-public interface TestService {
-    @FormUrlEncoded
-    @POST("methodName")
-    Observable<ResponseBody> doSth(@Field("paramater") String paramater);
-}
-
-
-testService = RetrofitProvider.getInstance().create(TestService.class);
+	public interface TestService {
+   		@FormUrlEncoded
+    		@POST("methodName")
+    		Observable<ResponseBody> doSth(@Field("paramater") String paramater);
+	}
 
 
-testrService.doSth(result)
+	testService = RetrofitProvider.getInstance().create(TestService.class);
+
+
+	testrService.doSth(result)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new MyObserver(dialog) {
@@ -37,3 +36,4 @@ testrService.doSth(result)
                         Log.d(TAG, result);
                     }
                 });
+
