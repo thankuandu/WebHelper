@@ -25,6 +25,22 @@ public class RetrofitProvider {
 
     public static void setBaseUrl(String baseUrl) {
         RetrofitProvider.baseUrl = baseUrl;
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.readTimeout(20, TimeUnit.SECONDS);
+        builder.writeTimeout(20, TimeUnit.SECONDS);
+
+
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        builder.addInterceptor(loggingInterceptor);
+
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .client(builder.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
     }
 
 
